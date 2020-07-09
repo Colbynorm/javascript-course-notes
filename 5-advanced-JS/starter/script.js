@@ -209,3 +209,39 @@ function interviewQuestion(job) {
   };
 }
 interviewQuestion('teacher')('Linnea');
+
+
+
+// Bind, Call and Apply
+
+var colby = {
+  name: 'Colby',
+  age: 25,
+  job: 'junior developer',
+  presentation: function(style, timeOfDay) {
+    if (style === 'formal') {
+      console.log('Good ' + timeOfDay + ', ladies and gentlemen! I am ', this.name + '. I am a ', this.job + '. and I am ', this.age + ' years old.');
+    } else if (style === 'friendly') {
+      console.log('Hey! What\'s up? I\'m ' + this.name + ', I\'m a ',  this.job + ' and I\'m ',  this.age + ' years old. Have a nice ' + timeOfDay);
+    }
+  }
+}
+
+var linnea = {
+  name: 'Linnea',
+  age: 27,
+  job: 'personal trainer'
+};
+
+colby.presentation('formal', 'morning');
+// call method allows me to change from colby to linnea
+colby.presentation.call(linnea, 'friendly', 'afternoon');
+
+colby.presentation.apply(linnea, ['friendly', 'night time'])
+
+var colbyFriendly = colby.presentation.bind(colby, 'friendly')
+colbyFriendly('morning');
+colbyFriendly('night time');
+
+var linneaFormal = colby.presentation.bind(linnea, 'formal');
+linneaFormal('afternoon');
