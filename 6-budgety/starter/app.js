@@ -1,37 +1,26 @@
-var budgetController = (function() {
-    
+var budgetController = (function () {})();
 
-
+var UIController = (function () {
+  return {
+    gitinput: function () {
+        
+    },
+  };
 })();
 
+var controller = (function (budgetCtrl, UICtrl) {
+  var ctrlAddItem = function () {
+    console.log("It Works!");
+  };
 
-var UIController = (function() {
+  document.querySelector(".add__btn").addEventListener("click", ctrlAddItem);
 
+  document.addEventListener("keypress", function (event) {
+    console.log(event);
 
-
-})();
-
-
-var controller = (function(budgetCtrl, UICtrl) {
-
-    var ctrlAddItem = function() {
-        console.log('It Works!');
+    if (event.keyCode === 13) {
+      console.log("ENTER was pressed");
+      ctrlAddItem();
     }
-
-    document.querySelector('.add__btn').addEventListener('click', ctrlAddItem)
-
-
-
-    document.addEventListener('keypress', function(event) {
-        console.log(event);
-
-        if (event.keyCode === 13) {
-            console.log('ENTER was pressed');
-
-            ctrlAddItem();
-        }
-    });
-
+  });
 })(budgetController, UIController);
-
-
