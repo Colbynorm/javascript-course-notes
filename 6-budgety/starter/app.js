@@ -25,22 +25,29 @@ var UIController = (function () {
 var controller = (function (budgetCtrl, UICtrl) {
   var DOM = UICtrl.getDOMstrings();
 
-  var ctrlAddItem = function () {
-    var input = UICtrl.getInput();
-    console.log(input);
-    //console.log("It Works!");
-  };
-
-  document
-    .querySelector(DOM.inputButton)
-    .addEventListener("click", ctrlAddItem);
-
-  document.addEventListener("keypress", function (event) {
+  var setupEventListeners = function() {
+    document.querySelector(DOM.inputButton).addEventListener("click", ctrlAddItem);
+    document.addEventListener("keypress", function (event) {
     //console.log(event);
 
-    if (event.keyCode === 13) {
-      console.log("ENTER was pressed");
+    if (event.keyCode === 13 || event.which === 13) {
       ctrlAddItem();
     }
   });
+  };
+
+  var ctrlAddItem = function () {
+    var input = UICtrl.getInput();
+    console.log(input);
+  };
+
+  return {
+    init: function() {
+      console.log('application has started.');
+      setupEventListeners();
+    }
+  }
+
 })(budgetController, UIController);
+
+controller.init();
