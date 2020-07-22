@@ -85,6 +85,15 @@ var UIController = (function () {
       //INsert the HTML into the DOM
       document.querySelector(element).insertAdjacentHTML('beforeend', newHTML);
     },
+    clearFields: function() {
+      var fields, fieldsArr
+      fields = document.querySelectorAll(DOMstrings.inputDescription + ',' + DOMstrings.inputValue);
+      fieldsArr = Array.prototype.slice.call(fields);
+      fieldsArr.array.forEach(function(current, index, array) {
+        current.value = "";
+      });
+      fieldsArr[0].focus();
+    },
 
     getDOMstrings: function () {
       return DOMstrings;
@@ -93,9 +102,9 @@ var UIController = (function () {
 })();
 
 var controller = (function (budgetCtrl, UICtrl) {
-  var DOM = UICtrl.getDOMstrings();
 
   var setupEventListeners = function() {
+    var DOM = UICtrl.getDOMstrings();
     document.querySelector(DOM.inputButton).addEventListener("click", ctrlAddItem);
     document.addEventListener("keypress", function (event) {
     //console.log(event);
@@ -114,6 +123,8 @@ var controller = (function (budgetCtrl, UICtrl) {
     newItem = budgetCtrl.addItem(input.type, input.description, input.value);
     //add the item to the UI
     UICtrl.addListItem(newItem, input.type);
+    //Clear the fields
+    UICtrl.clearFields();
   };
 
   return {
