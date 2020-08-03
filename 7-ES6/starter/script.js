@@ -10,8 +10,8 @@ console.log(name5);
 // ES6
 const name6 = 'Colby Norman';
 let age6 = '25';
-name6 = 'Linnea Petroff';
-console.log(name6);
+//name6 = 'Linnea Petroff';
+//console.log(name6);
 // error because name6 is a 'const'
 
 
@@ -32,7 +32,7 @@ driversLicense(true);
 function driversLicense6(passedTest) {
     if(passedTest) {
         //will throw an error saying 'firstName' is not defined
-        console.log(firstName);
+        //console.log(firstName);
         let firstName = 'Colby';
         const yearOfBirth = 1995;
         console.log(firstName + ', born in ' + yearOfBirth + ', is now officially allowed to drive a car.');
@@ -65,7 +65,7 @@ console.log(i);
     var c = 3;
 }
 // would throw error, console.log needs to be in the same block as the variables.
-console.log( a + b );
+//console.log( a + b );
 // consoles 3
 console.log(c);
 
@@ -76,3 +76,33 @@ console.log(c);
 })();
 // would throw error
 console.log(c);
+
+
+
+
+
+
+
+// STRINGS
+
+let firstName = 'colby';
+let lastName = 'norman';
+const yearOfBirth = 1995;
+
+function calcAge(year) {
+    return 2020 - year;
+}
+
+
+// ES5
+console.log('This is ' + firstName + ' ' + lastName + '. He was born in'  + yearOfBirth + '. Today, he is ' + calcAge(yearOfBirth) + ' years old.');
+
+// ES6 
+console.log(`This is ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today he is ${calcAge(yearOfBirth)} years old.`);
+
+const n = `${firstName} ${lastName}`;
+console.log(n.startsWith('c'));
+console.log(n.endsWith('n'));
+console.log(n.includes('lby'));
+console.log(firstName.repeat(5));
+console.log(`${firstName} `.repeat(5));
