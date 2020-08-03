@@ -51,3 +51,28 @@ for (let i = 0; i < 5; i++) {
 // will log 23
 console.log(i);
 // let was changed to var... the consoleLog above would be 5 instead of 23
+
+
+
+
+
+
+// Blocks and IIFEs
+//ES6
+{
+    const a = 1;
+    let b = 2;
+    var c = 3;
+}
+// would throw error, console.log needs to be in the same block as the variables.
+console.log( a + b );
+// consoles 3
+console.log(c);
+
+
+//ES5
+(function() {
+    var c = 3;
+})();
+// would throw error
+console.log(c);
