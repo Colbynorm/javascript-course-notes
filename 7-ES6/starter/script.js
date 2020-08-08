@@ -42,14 +42,14 @@ function driversLicense6(passedTest) {
 driversLicense6(true);
 
 
-let i = 23;
+//let i = 23;
 
-for (let i = 0; i < 5; i++) {
+//for (let i = 0; i < 5; i++) {
     // will log 0-4
-    console.log(i);
-}
+//    console.log(i);
+//}
 // will log 23
-console.log(i);
+//console.log(i);
 // let was changed to var... the consoleLog above would be 5 instead of 23
 
 
@@ -238,3 +238,56 @@ const [age2, retirement] = calcAgeRetirement(1990);
 
 console.log(age2);
 console.log(retirement);
+
+
+
+
+
+//Arrays
+const boxes = document.querySelectorAll('.box');
+
+//ES5
+var boxesArr5 = Array.prototype.slice.call(boxes);
+boxesArr5.forEach(function(cur) {
+    cur.style.backgroundColor = 'dodgerblue';
+});
+
+
+//ES6
+const boxesArr6 = Array.from(boxes);
+boxesArr6.forEach(cur => cur.style.backgroundColor = 'dodgerblue');
+
+
+//ES5
+// for( var i = 0; i < boxesArr5.length; i++) {
+//     if(boxesArr5[i].className === 'box blue') {
+//         continue;
+//     }
+//     boxesArr5[i].textContent = 'I changed to blue!';
+// }
+
+//ES6
+for (const cur of boxesArr6) {
+    if (cur.className.includes('blue')) {
+        continue;
+    }
+    cur.textContent = 'I changed to blue!';
+}
+
+
+
+
+//ES5
+var ages = [12, 17, 8, 21, 14, 11];
+
+var full = ages.map(function(cur) {
+    return cur >= 18;
+})
+console.log(full);
+console.log(full.indexOf(true));
+console.log(ages[full.indexOf(true)]);
+
+
+//ES6
+const something = ages.findIndex(cur => cur >= 18);
+console.log(something);
