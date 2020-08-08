@@ -196,7 +196,45 @@ new Person('Colby').myFriends5(friends);
 //ES6
 Person.prototype.myFriends6 = function(friends) {
     var arr = friends.map(el =>
-        `${this.name} + ' is friends with ' ${el}`);
+        `${this.name} is friends with ${el}`);
         console.log(arr)
     }
 new Person('Linnea').myFriends6(friends);
+
+
+
+
+
+// Destructuring
+
+//ES5
+var colby = ['Colby', 25];
+var name1 = colby[0];
+var age1 = colby[1];
+
+
+//ES6
+const [name, age] = ['Colby', 25];
+console.log(name);
+console.log(age);
+
+
+const obj = {
+    firstName: 'Colby',
+    lastName: 'Norman'
+};
+
+const {firstName: a, lastName: b} = obj;
+console.log(a);
+console.log(b);
+
+
+function calcAgeRetirement(year) {
+    const age = new Date().getFullYear() - year;
+    return [age, 65 - age];
+}
+
+const [age2, retirement] = calcAgeRetirement(1990);
+
+console.log(age2);
+console.log(retirement);
