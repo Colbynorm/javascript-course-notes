@@ -316,29 +316,33 @@ function isFullAge6(limit, ...years) {
 }
 isFullAge6(1990, 1999, 1965);
 
-
-
 //Default Parameters
 
 //ES5
 function NormanPerson(firstName, yearOfBirth, lastName, nationality) {
+  lastName === undefined ? (lastName = "Norman") : (lastName = lastName);
+  nationality === undefined
+    ? (nationality = "American")
+    : (nationality = nationality);
 
-    lastName === undefined ? lastName = 'Norman' : lastName = lastName;
-    nationality === undefined ? nationality = 'American' : nationality = nationality;
-
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.yearOfBirth = yearOfBirth;
-    this.nationality = nationality;
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.yearOfBirth = yearOfBirth;
+  this.nationality = nationality;
 }
 
 //ES6
-function NormanPerson(firstName, yearOfBirth, lastName = 'Norman', nationality = 'American') {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.yearOfBirth = yearOfBirth;
-    this.nationality = nationality;
+function NormanPerson(
+  firstName,
+  yearOfBirth,
+  lastName = "Norman",
+  nationality = "American"
+) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.yearOfBirth = yearOfBirth;
+  this.nationality = nationality;
 }
-var colby = new NormanPerson('Colby', 1995);
+var colby = new NormanPerson("Colby", 1995);
 
-var linnea = new NormanPerson('Linnea', 1993, 'Petroff', 'European');
+var linnea = new NormanPerson("Linnea", 1993, "Petroff", "European");
