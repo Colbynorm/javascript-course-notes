@@ -361,25 +361,63 @@ question.set(3, "ES2015");
 question.set(4, "ES7");
 question.set("correct", 3);
 
-question.set(true, 'Correct Answer');
-question.set(false, 'Wrong, please try again');
+question.set(true, "Correct Answer");
+question.set(false, "Wrong, please try again");
 
-console.log(question.get('question'));
+console.log(question.get("question"));
 console.log(question.size);
 
-if(question.has(4)) {
+if (question.has(4)) {
   //question.delete(4);
-  console.log('Answer 4 is here');
+  console.log("Answer 4 is here");
 }
 //question.clear();
 
-question.forEach((value, key) => console.log(`This is ${key}, and it's set to ${value}`));
+question.forEach((value, key) =>
+  console.log(`This is ${key}, and it's set to ${value}`)
+);
 
 for (let [key, value] of question.entries()) {
-  if (typeof(key) === 'number') {
+  if (typeof key === "number") {
     console.log(`answer ${key} : ${value}`);
   }
 }
 
 // const ans = pareseInt(prompt('Write the correct answer'));
 // console.log(question.get(ans === question.get('correct')));
+
+//CLASSES
+
+//ES5
+var Person5 = function (name, yearOfBirth, job) {
+  this.name = name;
+  this.yearOfBirth = yearOfBirth;
+  this.job = job;
+};
+
+Person5.prototype.calculateAge = function () {
+  var age = new Date().getFullYear - this.yearOfBirth;
+  console.log(age);
+};
+
+var colby = new Person5("Colby", 1995, "web developer");
+
+//ES6
+class Person6 {
+  constructor(name, yearOfBirth, job) {
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
+  }
+  calculateAge() {
+    var age = new Date().getFullYear - this.yearOfBirth;
+    console.log(age);
+  }
+  static greeting() {
+    console.log("Hey!");
+  }
+}
+
+const colby6 = new Person6("Colby", 1995, "web developer");
+
+Person6.greeting();
