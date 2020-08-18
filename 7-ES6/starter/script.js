@@ -422,7 +422,6 @@ for (let [key, value] of question.entries()) {
 
 // Person6.greeting();
 
-
 //ES5
 var Person5 = function (name, yearOfBirth, job) {
   this.name = name;
@@ -435,23 +434,22 @@ Person5.prototype.calculateAge = function () {
   console.log(age);
 };
 
-var Athlete5 = function(name, yearOfBirth, job, olympicGames, medals) {
+var Athlete5 = function (name, yearOfBirth, job, olympicGames, medals) {
   Person5.call(this, name, yearOfBirth, job);
   this.olympicGames = olympicGames;
   this.medals = medals;
-}
+};
 
 Athlete5.prototype = Object.create(Person5.prototype);
 
-Athlete5.prototype.wonMedal = function() {
+Athlete5.prototype.wonMedal = function () {
   this.medals++;
   console.log(this.medals);
-}
+};
 
-var colbyAthlete5 = new Athlete5('Colby', 1995, 'web developer', 5, 5);
+var colbyAthlete5 = new Athlete5("Colby", 1995, "web developer", 5, 5);
 colbyAthlete5.calculateAge();
 colbyAthlete5.wonMedal();
-
 
 //ES6
 class Person6 {
@@ -478,7 +476,7 @@ class Athlete6 extends Person6 {
   }
 }
 
-const colbyAthlete6 = new Athlete6('Colby', 1995, 'web developer', 10, 10);
+const colbyAthlete6 = new Athlete6("Colby", 1995, "web developer", 10, 10);
 
 colbyAthlete6.wonMedal();
 colbyAthlete6.calculateAge();
